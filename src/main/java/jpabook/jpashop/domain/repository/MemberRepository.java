@@ -2,20 +2,15 @@ package jpabook.jpashop.domain.repository;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import jpabook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-@Repository // repository 를 spring bean 으로 등록해줌
+@Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext // EntityManager Injection
-    private EntityManager em;
-
-//    @PersistenceUnit // EntityManagerFactory 를 주입받고 싶다면 이 어노테이션을 사용하면 됨
-//    private EntityManagerFactory emf;
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member);
