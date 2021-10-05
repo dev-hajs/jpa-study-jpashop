@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.repository;
+package jpabook.jpashop.repository;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -26,7 +26,7 @@ public class MemberRepository {
     }
 
     public List<Member> findByNames(String name) {
-        return em.createQuery("select m from Member where m.name = :name", Member.class)
+        return em.createQuery("select m from Member m where m.name = :name", Member.class)
             .setParameter("name", name)
             .getResultList();
     }
