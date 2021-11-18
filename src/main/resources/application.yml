@@ -7,7 +7,7 @@ spring:
 
     jpa:
         hibernate:
-            ddl-auto: none #create
+            ddl-auto: create #none
         properties:
             hibernate:
 #                show_sql: true # System.out.print 로 찍히는 로그
